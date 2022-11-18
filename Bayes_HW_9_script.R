@@ -78,4 +78,6 @@ my.jags.mod1 <- jags.model(
   n.adapt=1000, quiet=FALSE, n.chains=3
 )
 
-dic.samples(my.fname_1, n.iter=10000, thin=1, type="pD")
+#use DIC
+dic.samples(my.jags.mod2, n.iter=10000, thin=1, type="pD")
+dic.samples(my.jags.mod1, n.iter=10000, thin=1, type="pD")
