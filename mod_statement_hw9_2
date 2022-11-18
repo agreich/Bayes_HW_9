@@ -1,0 +1,9 @@
+model{
+     for( i in 1:N ) {
+       y[i] ~ dnorm( mu[i], y.precision )
+       mu[i] <- beta[1] + beta[2]*cwt[i] + beta[3]*cqsec[i] + beta[4]*cwt[i]*cqsec[i]
+     }
+     beta[1:4] ~ dmnorm(beta.prior.mean, beta.prior.precision)
+     sigma ~ dunif( sigma.min, sigma.max )
+     y.precision <- 1/(sigma^2)
+}
